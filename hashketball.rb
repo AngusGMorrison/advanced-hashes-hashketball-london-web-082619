@@ -139,4 +139,35 @@ def long_name_steals_a_ton?
 end
 
 def player_with_most_of(stat)
-  game_hash.each_pair do { |team, data
+  max_stat = 0
+  player = nil
+  game_hash.each_pair do | team, data| 
+    data[:players].each | player |
+      if stat.is_a? String
+    
+    
+      if player[:stat] > max_stat
+        max_stat = player[:stat]
+        player = player[:name]
+      end
+    end
+  end
+  player
+end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
