@@ -77,19 +77,34 @@ end
         
 
 def big_shoe_rebounds
-  shoe_rebounds = [0, nil]
+  biggest_shoe = 0
+  most_rebounds = 0
+  
   game_hash.each_pair do | team, data |
     data[:players].each do | player |
-      if player[:shoe] > shoe_rebounds[0]
-        shoe_rebounds = [player[:shoe], player[:rebounds]]
+      if player[:shoe] > biggest_shoe
+        biggest_shoe = player[:shoe]
+        most_rebounds = player[:rebounds]
       end
     end
   end
-  shoe_rebounds[1]
+  most_rebounds
 end
     
 def most_points_scored
-  player_with_most_of(:points)
+  most_points = 0 
+  player = nil
+  
+  game_hash.each_pair do | team, data |
+    data[:players].each do | player |
+      if player[:points] > most_points
+        most_points = player[:points]
+        player = player[:name]
+      end
+    end
+  end
+  
+  player
 end
 
 def winning_team
@@ -129,29 +144,6 @@ def long_name_steals_a_ton?
   end
   true 
 end
-
-def player_with_most_of(stat)
-  max_stat = 0
-  player = nil
-  
-  game_hash.each_pair do | team, data | 
-    data[:players].each do | player |
-      if player[stat].is_a? String
-        if player[stat].length > max_stat
-          max_stat = player[stat].length
-          player = player[:name]
-        end
-      elsif player[stat] > max_stat
-        max_stat = player[stat]
-        player = player[:name]
-        binding.pry
-      end
-    end
-  end
-  player
-end
-
-most_p
   
   
   
