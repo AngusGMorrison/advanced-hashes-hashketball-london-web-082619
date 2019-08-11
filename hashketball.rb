@@ -137,3 +137,6 @@ def long_name_steals_a_ton?
   end
   true 
 end
+
+def player_with_most_of(stat)
+  game_hash.each_pair do { |team, data
