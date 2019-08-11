@@ -89,15 +89,7 @@ def big_shoe_rebounds
 end
     
 def most_points_scored
-  points_and_player = [0, nil]
-  game_hash.each_pair do | team, data |
-    data[:players].each do | player |
-      if player[:points] > points_and_player[0]
-        points_and_player = [player[:points], player[:name]]
-      end
-    end
-  end
-  points_and_player[1]
+  player_with_most_of(:points)
 end
 
 def winning_team
@@ -146,9 +138,7 @@ def player_with_most_of(stat)
       if player[:stat].is_a? String && player[:stat].length > max_stat
         max_stat = player[:stat].length
         player = player[:name]
-      end
-    
-      if player[:stat] > max_stat
+      elsif player[:stat] > max_stat
         max_stat = player[:stat]
         player = player[:name]
       end
