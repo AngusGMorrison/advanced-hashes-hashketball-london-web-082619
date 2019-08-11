@@ -136,9 +136,11 @@ def player_with_most_of(stat)
   
   game_hash.each_pair do | team, data | 
     data[:players].each do | player |
-      if player[stat].is_a? String && player[stat].length > max_stat
-        max_stat = player[stat].length
-        player = player[:name]
+      if player[stat].is_a? String
+        if player[stat].length > max_stat
+          max_stat = player[stat].length
+          player = player[:name]
+        end
       elsif player[stat] > max_stat
         max_stat = player[stat]
         player = player[:name]
