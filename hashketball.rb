@@ -116,8 +116,8 @@ end
 
 def winning_team
   scoreboard = {
-    game_hash[:home][:team_name]: point_calculator(:home),
-    game_hash[:away][:team_name]: point_calculator(:away)
+    game_hash[:home][:team_name] => point_calculator(:home),
+    game_hash[:away][:team_name] => point_calculator(:away)
   }
   
   scoreboard.max_by { | k, v | v }.first
