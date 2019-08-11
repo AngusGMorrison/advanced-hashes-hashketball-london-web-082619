@@ -148,6 +148,7 @@ def long_name_steals_a_ton?
       return false if player[:steals] > steals_to_beat
     end
   end
+  
   true 
 end
   
