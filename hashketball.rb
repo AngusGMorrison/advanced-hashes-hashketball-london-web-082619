@@ -140,11 +140,11 @@ def player_with_most_of(stat)
         if player[stat].length > max_stat
           max_stat = player[stat].length
           player = player[:name]
-          binding.pry
         end
       elsif player[stat] > max_stat
         max_stat = player[stat]
         player = player[:name]
+        binding.pry
       end
     end
   end
