@@ -104,7 +104,7 @@ def most_points_scored
     end
   end
   
-  player
+  scoring_player
 end
 
 def winning_team
