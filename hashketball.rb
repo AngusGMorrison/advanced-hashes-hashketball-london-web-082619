@@ -124,17 +124,20 @@ def winning_team
 end
 
 def player_with_longest_name
-  longest_name = [0, nil]
-  
+  max_name_length = 0
+  player_with_name = nil
+    
   game_hash.each_pair do | team, data |
     data[:players].each do | player |
-      name_length = player[:name].length
-      if name_length > longest_name[0]
-        longest_name = [name_length, player[:name]]
+      length = player[:name].length
+      if length > max_name_length
+        max_name_length = length
+        player_with_name = player[:name]
       end
     end
   end
-  longest_name[1]
+  
+  player_with_name
 end
 
 def long_name_steals_a_ton?
