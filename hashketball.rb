@@ -93,13 +93,13 @@ end
     
 def most_points_scored
   most_points = 0 
-  player = nil
+  scoring_player = nil
   
   game_hash.each_pair do | team, data |
     data[:players].each do | player |
       if player[:points] > most_points
         most_points = player[:points]
-        player = player[:name]
+        scoring_player = player[:name]
       end
     end
   end
