@@ -120,11 +120,7 @@ def winning_team
     game_hash[:away][:team_name]: point_calculator(:away)
   }
   
-  
-  home_points = [point_calculator(:home), game_hash[:home][:team_name]]
-  away_points = [point_calculator(:away), game_hash[:away][:team_name]]
-  
-  home_points[0] > away_points[0] ? home_points[1] : away_points[1]
+  scoreboard.max_by { | k, v | v }.first
 end
 
 def point_calculator(team)
