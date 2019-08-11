@@ -107,8 +107,18 @@ def most_points_scored
   scoring_player
 end
 
+#Resuable method to calculate the point total of any team
+def point_calculator(team)
+  game_hash[team][:players].reduce(0) { | memo, player |
+    memo += player[:points]
+  }
+end
+
 def winning_team
-  
+  scoreboard = {
+    game_hash[:home][:team_name]: point_calculator(:home),
+    game_hash[:away][:team_name]: point_calculator(:away)
+  }
   
   
   home_points = [point_calculator(:home), game_hash[:home][:team_name]]
