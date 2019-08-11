@@ -123,12 +123,6 @@ def winning_team
   scoreboard.max_by { | k, v | v }.first
 end
 
-def point_calculator(team)
-  game_hash[team][:players].reduce(0) { | memo, player |
-    memo += player[:points]
-  }
-end
-
 def player_with_longest_name
   longest_name = [0, nil]
   
